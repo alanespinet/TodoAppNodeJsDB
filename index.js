@@ -37,7 +37,7 @@ app.get('/tasks', (req, res) => {
 
 
 // todos los registros de un user id determinado
-app.get('/user/:id', (req, res) => {
+app.get('/user_id/:id', (req, res) => {
   connection.query(`SELECT * FROM tasks WHERE user_id = '${req.params.id}'`, (err, rows) => {
     if(err) res.end('error trying to access to route USER');
     else res.end(JSON.stringify(rows));
@@ -46,7 +46,7 @@ app.get('/user/:id', (req, res) => {
 
 
 // todos los registros de un user status determinado
-app.get('/user/:status', (req, res) => {
+app.get('/user_status/:status', (req, res) => {
   connection.query(`SELECT * FROM tasks WHERE status = '${req.params.status}'`, (err, rows) => {
     if(err) res.end('error trying to access to route USER');
     else res.end(JSON.stringify(rows));
