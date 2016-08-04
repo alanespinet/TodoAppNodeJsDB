@@ -40,7 +40,7 @@ app.get('/tasks', (req, res) => {
 app.get('/user_id/:id', (req, res) => {
   connection.query(`SELECT * FROM tasks WHERE user_id = '${req.params.id}'`, (err, rows) => {
     if(err) res.end('error trying to access to route USER');
-    else res.end(JSON.stringify(rows));
+    else res.json(rows);
   });
 });
 
@@ -49,7 +49,7 @@ app.get('/user_id/:id', (req, res) => {
 app.get('/user_status/:status', (req, res) => {
   connection.query(`SELECT * FROM tasks WHERE status = '${req.params.status}'`, (err, rows) => {
     if(err) res.end('error trying to access to route USER');
-    else res.end(JSON.stringify(rows));
+    else res.json(rows);
   });
 });
 
